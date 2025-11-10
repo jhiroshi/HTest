@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>H selection</title>
+  <link rel="stylesheet" href="./css/main.css"/>
+</head>
+<body>
+  <div class="container">
+    <!-- NOTIFICATION -->
+    <div class="Notification" id="Notification" hidden>
+      <span id="newdocsadded">
+        <div class="notification-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="notification-badge" id="notification-count"></span>
+        </div>
+      </span>New Documents added
+    </div>
+    <!-- HEADER -->
+    <div>
+      <h1>Documents</h1>
+    </div>
+    <!-- OPTIONS -->
+    <div class="options">
+      <div>
+        Sort by: <select id="sortSelect">
+          <option value="Title-desc" selected>Title (A-Z)</option>
+          <option value="Title-asc">Title (Z-A)</option>
+          <option value="Version-desc">Version (latest first)</option>
+          <option value="Version-asc">Version (oldest first)</option>
+          <option value="Creation-desc">Creation Date (recent first)</option>
+          <option value="Creation-asc">Creation Date (oldest first)</option>
+        </select>
+      </div>
+
+      <div class="segmented" role="group" aria-label="Cambiar vista">
+        <button id="btnList" aria-pressed="true" aria-label="Vista de lista">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 6h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 12h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 18h13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button id="btnGrid" aria-pressed="false" aria-label="Vista de cuadrícula">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- DATA VIEWS -->
+    <section id="view-list">
+      <div class="table" role="table" aria-label="Proyectos">
+        <div class="thead" role="row">
+          <div>Name</div>
+          <div>Contributors</div>
+          <div>Attachments</div>
+        </div>
+        <div class="tbody" id="tbody-items" role="rowgroup"></div>
+        <!-- ACTIONS -->
+        <!-- <div class="tfooter" id="tfooter-items">
+          <form id="form">
+            
+            <button type="submit">crear</button>
+          </form>
+        </div> -->
+      </div>
+    </section>
+
+    <section id="view-grid" hidden>
+      <div class="grid" id="grid"></div>
+    </section>
+    
+    
+  </div>
+  <script src="./js/main.mjs" type="module"></script>
+</body>
+</html>
